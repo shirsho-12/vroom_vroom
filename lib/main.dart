@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: VroomVroomColors.getSwatch(VroomVroomColors.module),
         iconTheme: const IconThemeData(color: VroomVroomColors.darkBlue),
       ),
-      initialRoute: RouteGenerator.dropOff,
+      initialRoute: RouteGenerator.idle,
       onGenerateRoute: RouteGenerator.generateRoute,
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );

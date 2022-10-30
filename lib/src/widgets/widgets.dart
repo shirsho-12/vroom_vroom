@@ -1,101 +1,46 @@
-// import 'package:flutter/material.dart';
-// import 'package:vroom_vroom/app_ui.dart';
-// export 'responsive_layout_builder.dart';
+import 'package:flutter/material.dart';
 
-// class UIButton extends StatelessWidget {
-//   const UIButton(
-//       {Key? key,
-//       required this.title,
-//       required this.infoText,
-//       required this.icon})
-//       : super(key: key);
-//   final String title;
-//   final String infoText;
-//   final Icon icon;
+//! Is the padding needed?
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox.fromSize(
-//       size: const Size(200, 200),
-//       child: ClipRRect(
-//         child: Container(
-//           color: VroomVroomColors.buttonColor,
-//           child: Row(
-//             children: [
-//               Icon(
-//                 icon.icon,
-//                 color: VroomVroomColors.iconColor,
-//                 size: 50,
-//               ),
-//               Column(
-//                 children: [
-//                   Text(
-//                     title,
-//                     style: VroomVroomTextStyle.headline3,
-//                   ),
-//                   Text(
-//                     infoText,
-//                     style: VroomVroomTextStyle.bodyText1,
-//                   ),
-//                 ],
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+class Background extends StatelessWidget {
+  const Background({Key? key}) : super(key: key);
 
-// class UISearchBar extends StatefulWidget {
-//   const UISearchBar({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Positioned.fill(
+        child: Container(
+      decoration: BoxDecoration(
+        gradient: RadialGradient(
+          center: const Alignment(0.0, 0.0),
+          colors: [
+            Colors.blueAccent.withOpacity(0.9),
+            Colors.indigoAccent.withOpacity(0.9),
+          ],
+        ),
+      ),
+    ));
+  }
+}
 
-//   @override
-//   State<UISearchBar> createState() => _UISearchBarState();
-// }
+class BotFace extends StatelessWidget {
+  const BotFace({Key? key}) : super(key: key);
 
-// class _UISearchBarState extends State<UISearchBar> {
-//   late final TextEditingController _controller;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     _controller = TextEditingController();
-//   }
-
-//   @override
-//   void dispose() {
-//     _controller.dispose();
-//     super.dispose();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return TextFormField(
-//       controller: _controller,
-//       decoration: InputDecoration(
-//         hintText: "Search...",
-//         hintStyle: VroomVroomTextStyle.bodyText1,
-//         // prefixIcon: Icon(
-//         //   Icons.search,
-//         //   color: VroomVroomColors.searchBackground,
-//         // ),
-//         suffixIcon: _controller.text.isNotEmpty
-//             ? IconButton(
-//                 icon: const Icon(
-//                   Icons.clear,
-//                   color: VroomVroomColors.iconColor,
-//                 ),
-//                 onPressed: () => _controller.clear(),
-//               )
-//             : null,
-//         filled: true,
-//         fillColor: VroomVroomColors.searchBackground,
-//         border: OutlineInputBorder(
-//           borderRadius: BorderRadius.circular(10),
-//           borderSide: BorderSide.none,
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 10), // Optional padding
+      child: AppBar(
+        backgroundColor: Colors.transparent,
+        bottomOpacity: 0.0,
+        elevation: 0,
+        title: Image.asset(
+          'assets/images/bot_face.png',
+          width: 400,
+          height: 80,
+        ),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+      ),
+    );
+  }
+}

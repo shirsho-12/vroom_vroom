@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vroom_vroom/drop_off/view/drop_off_page.dart';
 import 'package:vroom_vroom/home/view/home_page.dart';
+import 'package:vroom_vroom/idle/idle.dart';
 
 class RouteGenerator {
   static const String homePage = '/';
-  static const String dropOff = '/drop_off';
+  static const String idle = '/idle';
   static const String selectAV = '/select_av';
   static const String waitAV = '/wait_av';
 
@@ -14,8 +14,8 @@ class RouteGenerator {
     switch (settings.name) {
       case homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
-      case dropOff:
-        return MaterialPageRoute(builder: (_) => const DropOffPage());
+      case idle:
+        return MaterialPageRoute(builder: (_) => const IdlePage());
       case selectAV:
       // return MaterialPageRoute(builder: (_) => const SelectAVPage());
       case waitAV:
