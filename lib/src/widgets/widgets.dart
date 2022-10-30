@@ -13,8 +13,8 @@ class Background extends StatelessWidget {
         gradient: RadialGradient(
           center: const Alignment(0.0, 0.0),
           colors: [
-            Colors.blueAccent.withOpacity(0.9),
-            Colors.indigoAccent.withOpacity(0.9),
+            Colors.black12.withOpacity(0.7),
+            Colors.black45.withOpacity(0.9),
           ],
         ),
       ),

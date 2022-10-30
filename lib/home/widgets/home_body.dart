@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vroom_vroom/home/bloc/bloc.dart';
+import 'package:vroom_vroom/app_ui.dart';
+import 'package:vroom_vroom/home/widgets/widgets.dart';
 
 /// {@template home_body}
 /// Body of the HomePage.
@@ -12,10 +13,20 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
-      builder: (context, state) {
-        return Text(state.customProperty);
-      },
+    return Scaffold(
+      body: Stack(
+        children: [
+          const Background(),
+          const BotFace(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              HelpText(),
+              ButtonGrid(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

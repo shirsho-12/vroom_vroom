@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vroom_vroom/home/bloc/bloc.dart';
 import 'package:vroom_vroom/home/widgets/home_body.dart';
 
 /// {@template home_page}
@@ -13,16 +12,13 @@ class HomePage extends StatelessWidget {
   static Route<dynamic> route() {
     return MaterialPageRoute<dynamic>(builder: (_) => const HomePage());
   }
-
+   
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeBloc(),
-      child: const Scaffold(
-        body: HomeView(),
-      ),
+    return const Scaffold(
+      body: HomeView(),
     );
-  }    
+  } 
 }
 
 /// {@template home_view}
