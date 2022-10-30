@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vroom_vroom/app_ui.dart';
 import 'package:vroom_vroom/nav/bloc/bloc.dart';
-import 'package:vroom_vroom/nav/widgets/widgets.dart';
+import 'package:vroom_vroom/nav/widgets/take_photo.dart';
+// import 'package:vroom_vroom/nav/widgets/widgets.dart';
 
 /// {@template nav_body}
 /// Body of the NavPage.
@@ -32,7 +33,7 @@ class NavBody extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: BlocBuilder<NavBloc, NavState>(
               builder: (context, state) {
-                return const BookAV();
+                return const TakePhoto();
               },
             ),
           )
