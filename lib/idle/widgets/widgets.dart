@@ -22,31 +22,34 @@ class CenterButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(200),
             color: Colors.transparent,
           ),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            RichText(
-              text: const TextSpan(
-                text: 'TOUCH ME',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w300,
-                  letterSpacing: 1.5,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RichText(
+                text: const TextSpan(
+                  text: 'TOUCH ME',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w300,
+                    letterSpacing: 1.5,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-            RichText(
-              text: const TextSpan(
-                text: 'TO SEE WHAT I CAN DO!',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w300,
-                  letterSpacing: 1.5,
+              const SizedBox(height: 10),
+              RichText(
+                text: const TextSpan(
+                  text: 'TO SEE WHAT I CAN DO!',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w300,
+                    letterSpacing: 1.5,
+                  ),
                 ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       ),
     );

@@ -2,6 +2,8 @@ export 'home_body.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as devtools show log;
 
+import 'package:vroom_vroom/routes.dart';
+
 class MyWidget extends StatelessWidget {
   const MyWidget({Key? key}) : super(key: key);
 
@@ -59,6 +61,7 @@ class ButtonGrid extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 devtools.log("Book AV");
+                Navigator.of(context).pushNamed(RouteGenerator.bookAvPage);
               },
               child: Container(
                 padding: const EdgeInsets.all(4),
@@ -72,6 +75,7 @@ class ButtonGrid extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 devtools.log("Visit Place");
+                Navigator.of(context).pushNamed(RouteGenerator.visitPlacePage);
               },
               child: Container(
                 padding: const EdgeInsets.all(4),
@@ -90,6 +94,7 @@ class ButtonGrid extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 devtools.log("Take Photo");
+                Navigator.of(context).pushNamed(RouteGenerator.takePhotoPage);
               },
               child: Container(
                 padding: const EdgeInsets.all(4),
@@ -103,6 +108,7 @@ class ButtonGrid extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 devtools.log("Tell Joke");
+                Navigator.of(context).pushNamed(RouteGenerator.tellJokePage);
               },
               child: Container(
                 // padding: const EdgeInsets.all(8),
