@@ -21,7 +21,9 @@ class HomeBody extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
+              SizedBox(height: 200),
               HelpText(),
+              SizedBox(height: 20),
               ButtonGrid(),
             ],
           ),

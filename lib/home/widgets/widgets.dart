@@ -1,5 +1,6 @@
 export 'home_body.dart';
 import 'package:flutter/material.dart';
+import 'dart:developer' as devtools show log;
 
 class MyWidget extends StatelessWidget {
   const MyWidget({Key? key}) : super(key: key);
@@ -55,20 +56,30 @@ class ButtonGrid extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Image.asset(
-                'assets/images/book_av.png',
-                width: 150,
-                height: 150,
+            GestureDetector(
+              onTap: () {
+                devtools.log("Book AV");
+              },
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                child: Image.asset(
+                  'assets/images/book_av.png',
+                  width: 180,
+                  // height: 150,
+                ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Image.asset(
-                'assets/images/visit_place.png',
-                width: 80,
-                height: 80,
+            GestureDetector(
+              onTap: () {
+                devtools.log("Visit Place");
+              },
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                child: Image.asset(
+                  'assets/images/visit_place.png',
+                  width: 180,
+                  // height: 80,
+                ),
               ),
             ),
           ],
@@ -76,21 +87,31 @@ class ButtonGrid extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Image.asset(
-                'assets/images/take_photo.png',
-                width: 80,
-                height: 80,
+            GestureDetector(
+              onTap: () {
+                devtools.log("Take Photo");
+              },
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                child: Image.asset(
+                  'assets/images/take_photo.png',
+                  width: 180,
+                  // height: 80,
+                ),
               ),
             ),
-            Container(
-              // padding: const EdgeInsets.all(8),
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Image.asset(
-                'assets/images/tell_joke.png',
-                width: 80,
-                height: 80,
+            GestureDetector(
+              onTap: () {
+                devtools.log("Tell Joke");
+              },
+              child: Container(
+                // padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(4),
+                child: Image.asset(
+                  'assets/images/tell_joke.png',
+                  width: 180,
+                  // height: 80,
+                ),
               ),
             ),
           ],
