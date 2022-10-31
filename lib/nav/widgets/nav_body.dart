@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vroom_vroom/app_ui.dart';
 import 'package:vroom_vroom/nav/nav.dart';
+import 'package:vroom_vroom/nav/widgets/attraction_main.dart';
+import 'package:vroom_vroom/nav/widgets/photo_taken.dart';
+import 'package:vroom_vroom/nav/widgets/tell_joke.dart';
 
 import 'camera_screen.dart';
 
@@ -35,7 +38,19 @@ class NavBody extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: BlocBuilder<NavBloc, NavState>(
               builder: (context, state) {
-                return const CameraScreen();
+                if (state is BookAVState) {
+                  return const BookAV();
+                } else if (state is VisitPlaceState) {
+                  return const AttractionMain();
+                } else if (state is TellMeAJokeState) {
+                  return const TellJoke();
+                } else if (state is TakePhotoState) {
+                  return const CameraScreen();
+                } else if (state is TakePhotoCompleteState) {
+                  return const PhotoTakenScreen();
+                } else {
+                  return const BookAV();
+                }
               },
             ),
           )

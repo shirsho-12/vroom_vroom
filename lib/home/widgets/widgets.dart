@@ -61,6 +61,7 @@ class ButtonGrid extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 devtools.log("Book AV");
+                // context.read<NavBloc>().add(const BookAVEvent());
                 Navigator.of(context).pushNamed(RouteGenerator.bookAvPage);
               },
               child: Container(
@@ -75,6 +76,7 @@ class ButtonGrid extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 devtools.log("Visit Place");
+                // context.read<NavBloc>().add(const VisitPlaceEvent());
                 Navigator.of(context).pushNamed(RouteGenerator.visitPlacePage);
               },
               child: Container(
@@ -94,6 +96,7 @@ class ButtonGrid extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 devtools.log("Take Photo");
+                // context.read<NavBloc>().add(const TakePhotoEvent());
                 Navigator.of(context).pushNamed(RouteGenerator.takePhotoPage);
               },
               child: Container(
@@ -108,6 +111,7 @@ class ButtonGrid extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 devtools.log("Tell Joke");
+                // context.read<NavBloc>().add(const TellMeAJokeEvent());
                 Navigator.of(context).pushNamed(RouteGenerator.tellJokePage);
               },
               child: Container(

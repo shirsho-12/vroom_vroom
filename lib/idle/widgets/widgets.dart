@@ -13,7 +13,7 @@ class CenterButton extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           devtools.log("Touched");
-          Navigator.of(context).pushNamed(RouteGenerator.homePage);
+          Navigator.of(context).pushReplacementNamed(RouteGenerator.homePage);
         },
         child: Container(
           width: 300,

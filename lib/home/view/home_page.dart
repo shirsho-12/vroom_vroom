@@ -12,13 +12,13 @@ class HomePage extends StatelessWidget {
   static Route<dynamic> route() {
     return MaterialPageRoute<dynamic>(builder: (_) => const HomePage());
   }
-   
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: HomeView(),
     );
-  } 
+  }
 }
 
 /// {@template home_view}

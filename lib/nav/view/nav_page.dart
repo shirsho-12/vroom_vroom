@@ -7,22 +7,23 @@ import 'package:vroom_vroom/nav/widgets/nav_body.dart';
 /// {@endtemplate}
 class NavPage extends StatelessWidget {
   /// {@macro nav_page}
-  const NavPage({Key? key}) : super(key: key);
+  final int val;
+  const NavPage({required this.val, Key? key}) : super(key: key);
 
   /// The static route for NavPage
   static Route<dynamic> route() {
-    return MaterialPageRoute<dynamic>(builder: (_) => const NavPage());
+    return MaterialPageRoute<dynamic>(builder: (_) => const NavPage(val: 0));
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NavBloc(),
+      create: (context) => NavBloc(val),
       child: const Scaffold(
         body: NavView(),
       ),
     );
-  }    
+  }
 }
 
 /// {@template nav_view}

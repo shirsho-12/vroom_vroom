@@ -5,6 +5,8 @@ import 'package:gallery_saver/gallery_saver.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:developer' as devtools show log;
 
+import 'package:vroom_vroom/nav/bloc/bloc.dart';
+
 class CameraScreen extends StatelessWidget {
   const CameraScreen({Key? key}) : super(key: key);
 
@@ -102,6 +104,9 @@ class _CameraWidgetState extends State<CameraWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isComplete) {
+      context.read<NavBloc>().add(const TakePhotoCompleteEvent());
+    }
     return !controller.value.isInitialized
         ? Container()
         : Stack(

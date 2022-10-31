@@ -3,16 +3,14 @@ import 'package:vroom_vroom/home/view/home_page.dart';
 import 'package:vroom_vroom/idle/idle.dart';
 import 'package:vroom_vroom/nav/view/nav_page.dart';
 
-// TODO: Integrate blocs into the nav routes
-
 class RouteGenerator {
   static const String homePage = '/';
   static const String idle = '/idle';
   static const String navPage = '/nav';
-  static const String visitPlacePage = '/nav';
-  static const String bookAvPage = '/nav';
-  static const String takePhotoPage = '/nav';
-  static const String tellJokePage = '/nav';
+  static const String visitPlacePage = '/visit_place';
+  static const String bookAvPage = '/book_av';
+  static const String takePhotoPage = '/take_photo';
+  static const String tellJokePage = '/tell_joke';
   static const String waitAV = '/wait_av';
 
   RouteGenerator._();
@@ -24,15 +22,15 @@ class RouteGenerator {
       case idle:
         return MaterialPageRoute(builder: (_) => const IdlePage());
       case tellJokePage:
-      // ignore: no_duplicate_case_values
+        return MaterialPageRoute(builder: (_) => const NavPage(val: 4));
       case takePhotoPage:
-      // ignore: no_duplicate_case_values
+        return MaterialPageRoute(builder: (_) => const NavPage(val: 3));
       case bookAvPage:
-      // ignore: no_duplicate_case_values
+        return MaterialPageRoute(builder: (_) => const NavPage(val: 2));
       case visitPlacePage:
-      // ignore: no_duplicate_case_values
+        return MaterialPageRoute(builder: (_) => const NavPage(val: 1));
       case navPage:
-        return MaterialPageRoute(builder: (_) => const NavPage());
+        return MaterialPageRoute(builder: (_) => const NavPage(val: 0));
 
       case waitAV:
       // return MaterialPageRoute(builder: (_) => const WaitAVPage());
