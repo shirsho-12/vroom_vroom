@@ -27,6 +27,10 @@ class VisitPlaceState extends NavState {
   const VisitPlaceState() : super();
 }
 
+class PlaceSelectedState extends NavState {
+  const PlaceSelectedState() : super();
+}
+
 class TakePhotoState extends NavState {
   const TakePhotoState() : super();
 }

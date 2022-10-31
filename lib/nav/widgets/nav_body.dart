@@ -3,6 +3,7 @@ import 'package:vroom_vroom/app_ui.dart';
 import 'package:vroom_vroom/nav/nav.dart';
 import 'package:vroom_vroom/nav/widgets/attraction_main.dart';
 import 'package:vroom_vroom/nav/widgets/photo_taken.dart';
+import 'package:vroom_vroom/nav/widgets/place_selected.dart';
 import 'package:vroom_vroom/nav/widgets/tell_joke.dart';
 
 import 'camera_screen.dart';
@@ -48,6 +49,8 @@ class NavBody extends StatelessWidget {
                   return const CameraScreen();
                 } else if (state is TakePhotoCompleteState) {
                   return const PhotoTakenScreen();
+                } else if (state is PlaceSelectedState) {
+                  return const PlaceSelectedScreen();
                 } else {
                   return const BookAV();
                 }

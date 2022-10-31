@@ -16,6 +16,10 @@ class VisitPlaceEvent extends NavEvent {
   const VisitPlaceEvent() : super();
 }
 
+class PlaceSelectedEvent extends NavEvent {
+  const PlaceSelectedEvent() : super();
+}
+
 class TakePhotoEvent extends NavEvent {
   const TakePhotoEvent() : super();
 }

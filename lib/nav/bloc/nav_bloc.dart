@@ -12,6 +12,7 @@ class NavBloc extends Bloc<NavEvent, NavState> {
     on<TakePhotoEvent>(_onTakePhotoEvent);
     on<TakePhotoCompleteEvent>(_onTakePhotoCompleteEvent);
     on<TellMeAJokeEvent>(_onTellMeAJokeEvent);
+    on<PlaceSelectedEvent>(_onPlaceSelectedEvent);
     switch (val) {
       case 0:
         break;
@@ -65,5 +66,12 @@ class NavBloc extends Bloc<NavEvent, NavState> {
     Emitter<NavState> emit,
   ) {
     emit(const TellMeAJokeState());
+  }
+
+  FutureOr<void> _onPlaceSelectedEvent(
+    PlaceSelectedEvent event,
+    Emitter<NavState> emit,
+  ) {
+    emit(const PlaceSelectedState());
   }
 }

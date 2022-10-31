@@ -1,7 +1,10 @@
 export 'nav_body.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:developer' as devtools show log;
+
+import 'package:vroom_vroom/nav/bloc/nav_bloc.dart';
 
 class AttractionMain extends StatelessWidget {
   const AttractionMain({Key? key}) : super(key: key);
@@ -39,12 +42,13 @@ class AttractionMain extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         devtools.log("loc_1");
+                        context.read<NavBloc>().add(const PlaceSelectedEvent());
                       },
                       child: Container(
-                        // padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_1.png',
-                          width: 180,
+                          width: 160,
                           // height: 150,
                         ),
                       ),
@@ -52,12 +56,13 @@ class AttractionMain extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         devtools.log("loc_2");
+                        context.read<NavBloc>().add(const PlaceSelectedEvent());
                       },
                       child: Container(
-                        // padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_2.png',
-                          width: 180,
+                          width: 160,
                           // height: 80,
                         ),
                       ),
@@ -70,12 +75,13 @@ class AttractionMain extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         devtools.log("loc_3");
+                        context.read<NavBloc>().add(const PlaceSelectedEvent());
                       },
                       child: Container(
-                        // padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_3.png',
-                          width: 180,
+                          width: 160,
                           // height: 80,
                         ),
                       ),
@@ -83,13 +89,14 @@ class AttractionMain extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         devtools.log("loc_4");
+                        context.read<NavBloc>().add(const PlaceSelectedEvent());
                       },
                       child: Container(
                         // padding: const EdgeInsets.all(8),
-                        // padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_4.png',
-                          width: 180,
+                          width: 160,
                           // height: 80,
                         ),
                       ),
@@ -102,12 +109,13 @@ class AttractionMain extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         devtools.log("loc_5");
+                        context.read<NavBloc>().add(const PlaceSelectedEvent());
                       },
                       child: Container(
                         padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_5.png',
-                          width: 180,
+                          width: 160,
                           // height: 80,
                         ),
                       ),
@@ -115,12 +123,13 @@ class AttractionMain extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         devtools.log("loc_6");
+                        context.read<NavBloc>().add(const PlaceSelectedEvent());
                       },
                       child: Container(
                         padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_6.png',
-                          width: 180,
+                          width: 160,
                           // height: 80,
                         ),
                       ),
