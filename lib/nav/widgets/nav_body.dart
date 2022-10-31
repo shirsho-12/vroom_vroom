@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vroom_vroom/app_ui.dart';
-import 'package:vroom_vroom/nav/bloc/bloc.dart';
+import 'package:vroom_vroom/nav/nav.dart';
 import 'package:vroom_vroom/nav/widgets/take_photo.dart';
 // import 'package:vroom_vroom/nav/widgets/widgets.dart';
 

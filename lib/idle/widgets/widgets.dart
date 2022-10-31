@@ -26,8 +26,9 @@ class CenterButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               RichText(
+                textAlign: TextAlign.center,
                 text: const TextSpan(
-                  text: 'TOUCH ME',
+                  text: 'TOUCH ME\n\nTO SEE WHAT I CAN DO!',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
@@ -37,17 +38,6 @@ class CenterButton extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              RichText(
-                text: const TextSpan(
-                  text: 'TO SEE WHAT I CAN DO!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w300,
-                    letterSpacing: 1.5,
-                  ),
-                ),
-              ),
             ],
           ),
         ),
