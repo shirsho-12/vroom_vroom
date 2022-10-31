@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vroom_vroom/app_ui.dart';
 import 'package:vroom_vroom/nav/nav.dart';
-import 'package:vroom_vroom/nav/widgets/take_photo.dart';
+
+import 'camera_screen.dart';
+
 // import 'package:vroom_vroom/nav/widgets/widgets.dart';
 
 /// {@template nav_body}
@@ -33,7 +35,7 @@ class NavBody extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: BlocBuilder<NavBloc, NavState>(
               builder: (context, state) {
-                return const TakePhoto();
+                return const CameraScreen();
               },
             ),
           )
