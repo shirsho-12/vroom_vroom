@@ -17,7 +17,9 @@ class IdleBody extends StatelessWidget {
       body: Stack(
         children: const [
           Background(),
-          BotFace(),
+          BotFace(
+            imagePath: "assets/images/idle_menu.gif",
+          ),
           CenterButton(),
         ],
       ),

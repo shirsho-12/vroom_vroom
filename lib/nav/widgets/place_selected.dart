@@ -55,7 +55,7 @@ class PlaceSelectedScreen extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             Image.asset(
-              'assets/images/av_qr.png',
+              'assets/images/attractions_qr.png',
               width: 180,
               // height: 150,
             )

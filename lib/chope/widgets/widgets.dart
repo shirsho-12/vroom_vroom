@@ -7,16 +7,21 @@ class ChopeFace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Container(
-      padding: const EdgeInsets.only(top: 20), // Optional padding
+      // padding: const EdgeInsets.only(top: 20), // Optional padding
       child: AppBar(
         backgroundColor: Colors.transparent,
         bottomOpacity: 0.0,
         elevation: 0,
-        title: Image.asset(
-          'assets/images/bot_chope_face.png',
-          width: 400,
-          height: 120,
+        title: SizedBox(
+          height: 150,
+          width: width,
+          child: Image.asset(
+            'assets/images/idle_menu.gif',
+            width: 400,
+            // height: 120,
+          ),
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,

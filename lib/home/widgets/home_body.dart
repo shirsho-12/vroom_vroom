@@ -17,7 +17,7 @@ class HomeBody extends StatelessWidget {
       body: Stack(
         children: [
           const Background(),
-          const BotFace(),
+          const BotFace(imagePath: 'assets/images/idle_menu.gif'),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [

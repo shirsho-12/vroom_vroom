@@ -26,10 +26,31 @@ class NavBody extends StatelessWidget {
         children: [
           const Background(),
           Column(
-            children: const [
-              BotFace(),
-              SizedBox(height: 30),
-              Padding(
+            children: [
+              BlocBuilder<NavBloc, NavState>(
+                builder: (context, state) {
+                  if (state is BookAVState) {
+                    return const BotFace(
+                        imagePath: 'assets/images/happy_book_av.gif');
+                  } else if (state is TakePhotoState ||
+                      state is VisitPlaceState) {
+                    return const BotFace(
+                        imagePath:
+                            'assets/images/excited_attraction_take_photo.gif');
+                  } else if (state is TellMeAJokeState) {
+                    return const BotFace(
+                        imagePath: "assets/images/cheeky_tell_joke.gif");
+                  } else if (state is TakePhotoCompleteState) {
+                    return const BotFace(
+                        imagePath: "assets/images/hearteyes_phoot_taken.gif");
+                  } else {
+                    return const BotFace(
+                        imagePath: 'assets/images/idle_menu.gif');
+                  }
+                },
+              ),
+              const SizedBox(height: 30),
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: NavAppBar(),
               ),

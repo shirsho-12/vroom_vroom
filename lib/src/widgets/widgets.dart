@@ -24,25 +24,44 @@ class Background extends StatelessWidget {
 }
 
 class BotFace extends StatelessWidget {
-  const BotFace({Key? key}) : super(key: key);
+  const BotFace({Key? key, required this.imagePath}) : super(key: key);
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 20), // Optional padding
-      child: AppBar(
-        backgroundColor: Colors.transparent,
-        bottomOpacity: 0.0,
-        elevation: 0,
-        title: Image.asset(
-          'assets/images/bot_face.png',
-          width: 400,
-          height: 120,
-        ),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
-    );
+    int width = MediaQuery.of(context).size.width.toInt();
+    return Align(
+        alignment: const Alignment(0, -0.9),
+        child: SizedBox(
+          height: 150,
+          width: width.toDouble(),
+          child: Image.asset(
+            imagePath,
+            width: 400,
+            // height: 120,
+          ),
+        ));
+
+    // return PreferredSize(
+    //   preferredSize: const Size.fromHeight(400.0),
+    //   child: AppBar(
+    //     backgroundColor: Colors.transparent,
+    //     bottomOpacity: 0.0,
+    //     elevation: 0,
+    //     title: SizedBox(
+    //       width: width.toDouble(),
+    //       height: 80,
+    //       child: Image.asset(
+    //         imagePath,
+    //         width: width * 0.9,
+    //         // height: 200,
+    //         fit: BoxFit.fill,
+    //       ),
+    //     ),
+    //     centerTitle: true,
+    //     automaticallyImplyLeading: false,
+    //   ),
+    // );
   }
 }
 

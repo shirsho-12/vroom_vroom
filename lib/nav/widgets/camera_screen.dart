@@ -19,7 +19,7 @@ class CameraScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 100),
+            const SizedBox(height: 200),
             RichText(
               textAlign: TextAlign.center,
               text: const TextSpan(

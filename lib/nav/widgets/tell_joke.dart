@@ -32,9 +32,14 @@ class _TellJokeState extends State<TellJoke> {
               child: Container(
                 width: 240.0,
                 height: 240.0,
-                decoration: const BoxDecoration(
-                  color: Color(0xD9D9D9FF),
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: !!_showPunchline
+                        ? const AssetImage("assets/images/tell_joke_before.png")
+                        : const AssetImage("assets/images/tell_joke_after.png"),
+                  ),
                 ),
               ),
             ),
