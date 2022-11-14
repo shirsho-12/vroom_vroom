@@ -43,7 +43,11 @@ dependencies:
   circular_countdown_timer: ^0.2.2
   gallery_saver: ^2.3.2
   permission_handler: ^10.2.0
-  pytorch_mobile: ^0.2.2
+  googleapis: ^9.2.0
+  google_sign_in: ^5.4.2
+  firebase: ^9.0.3
+  firebase_core: ^2.2.0
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:

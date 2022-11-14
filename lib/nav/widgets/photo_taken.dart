@@ -3,8 +3,33 @@ export 'nav_body.dart';
 import 'package:flutter/material.dart';
 // import 'dart:developer' as devtools show log;
 
-class PhotoTakenScreen extends StatelessWidget {
+class PhotoTakenScreen extends StatefulWidget {
   const PhotoTakenScreen({Key? key}) : super(key: key);
+
+  @override
+  State<PhotoTakenScreen> createState() => _PhotoTakenScreenState();
+}
+
+class _PhotoTakenScreenState extends State<PhotoTakenScreen> {
+  GlobalKey globalKey = GlobalKey();
+
+  // Future<void> _captureAndSharePng() async {
+  //   try {
+  //     RenderObject? boundary = globalKey.currentContext?.findRenderObject();
+  //     var image = await boundary.toImage();
+  //     ByteData? byteData = await image.toByteData(format: ImageByteFormat.png);
+  //     Uint8List pngBytes = byteData!.buffer.asUint8List();
+
+  //     final tempDir = await getTemporaryDirectory();
+  //     final file = await File('${tempDir.path}/image.png').create();
+  //     await file.writeAsBytes(pngBytes);
+
+  //     const channel = const MethodChannel('channel:me.alfian.share/share');
+  //     channel.invokeMethod('shareFile', 'image.png');
+  //   } catch (e) {
+  //     print(e.toString());
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

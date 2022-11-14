@@ -4,8 +4,8 @@ import 'dart:developer' as devtools show log;
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:pytorch_mobile/model.dart';
-import 'package:pytorch_mobile/pytorch_mobile.dart';
+// import 'package:pytorch_mobile/model.dart';
+// import 'package:pytorch_mobile/pytorch_mobile.dart';
 
 class ALPRCamera extends StatefulWidget {
   const ALPRCamera({required this.camera, Key? key}) : super(key: key);
@@ -16,10 +16,10 @@ class ALPRCamera extends StatefulWidget {
 
 class _ALPRCameraState extends State<ALPRCamera> {
   late final CameraController controller;
-  late Model model;
+  // late Model model;
   late CameraImage _savedImage;
   Future<void> getModel() async {
-    model = await PyTorchMobile.loadModel('assets/models/yolov5s.pt');
+    //   model = await PyTorchMobile.loadModel('assets/models/yolov5s.pt');
   }
 
   void _processCameraImage(CameraImage image) async {
@@ -32,7 +32,7 @@ class _ALPRCameraState extends State<ALPRCamera> {
   void initState() {
     super.initState();
     controller = CameraController(widget.camera, ResolutionPreset.max);
-    getModel();
+    // getModel();
 
     controller.initialize().then((_) async {
       if (!mounted) {
@@ -57,14 +57,15 @@ class _ALPRCameraState extends State<ALPRCamera> {
   }
 
   Future<List<dynamic>?> getPreds(File image) async {
-    final Future<List<dynamic>?> preds = model.getImagePredictionList(
-      image,
-      640,
-      640,
-      mean: [0.485, 0.456, 0.406],
-      std: [0.229, 0.224, 0.225],
-    );
-    return preds;
+    // final Future<List<dynamic>?> preds = model.getImagePredictionList(
+    //   image,
+    //   640,
+    //   640,
+    //   mean: [0.485, 0.456, 0.406],
+    //   std: [0.229, 0.224, 0.225],
+    // );
+    // return preds;
+    return [];
   }
 
   @override
