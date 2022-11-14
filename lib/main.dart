@@ -3,7 +3,7 @@ import 'package:vroom_vroom/routes.dart';
 
 import 'app_ui.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: VroomVroomColors.getSwatch(VroomVroomColors.module),
         iconTheme: const IconThemeData(color: VroomVroomColors.darkBlue),
       ),
-      initialRoute: RouteGenerator.idle,
+      initialRoute: RouteGenerator.homePage,
       onGenerateRoute: RouteGenerator.generateRoute,
       // home: MultiBlocProvider(
       //   providers: [
