@@ -8,6 +8,8 @@ class BookAVText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double extraPadding = height * 0.1;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Center(
@@ -15,6 +17,7 @@ class BookAVText extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: extraPadding),
             RichText(
               textAlign: TextAlign.center,
               text: const TextSpan(

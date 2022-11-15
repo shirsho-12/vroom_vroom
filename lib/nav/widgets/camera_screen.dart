@@ -17,6 +17,7 @@ class CameraScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double extraPadding = MediaQuery.of(context).size.height / 10 * 3;
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
       child: Center(
@@ -24,7 +25,7 @@ class CameraScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 200),
+            SizedBox(height: extraPadding),
             RichText(
               textAlign: TextAlign.center,
               text: const TextSpan(
@@ -184,8 +185,8 @@ class _CameraWidgetState extends State<CameraWidget> {
             alignment: Alignment.center,
             children: [
               SizedBox(
-                width: 450,
-                height: 450,
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height / 2,
                 child: CameraPreview(controller),
               ),
               !isComplete

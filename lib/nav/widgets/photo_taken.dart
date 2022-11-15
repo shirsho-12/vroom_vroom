@@ -33,6 +33,7 @@ class _PhotoTakenScreenState extends State<PhotoTakenScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double extraPadding = MediaQuery.of(context).size.height / 10;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Center(
@@ -40,10 +41,11 @@ class _PhotoTakenScreenState extends State<PhotoTakenScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: extraPadding),
             RichText(
               textAlign: TextAlign.center,
               text: const TextSpan(
-                text: "Here’s your photo, scan\nthis QR code to save it!",
+                text: "Here’s your photo, scan this QR code to save it!",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 30,
@@ -51,6 +53,7 @@ class _PhotoTakenScreenState extends State<PhotoTakenScreen> {
                   letterSpacing: 1.5,
                 ),
               ),
+              maxLines: 3,
             ),
             const SizedBox(height: 20),
             RichText(

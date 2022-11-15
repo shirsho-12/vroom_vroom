@@ -11,6 +11,12 @@ class AttractionMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+    double buttonWidth = width * 0.43;
+    // double buttonHeight = height * 0.2;
+    double extraPadding = height * 0.15;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Center(
@@ -18,7 +24,7 @@ class AttractionMain extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 40),
+            SizedBox(height: extraPadding),
             RichText(
               textAlign: TextAlign.center,
               text: const TextSpan(
@@ -31,7 +37,7 @@ class AttractionMain extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 30),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,8 +54,8 @@ class AttractionMain extends StatelessWidget {
                         padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_1.png',
-                          width: 160,
-                          // height: 150,
+                          width: buttonWidth,
+                          // height: buttonHeight,
                         ),
                       ),
                     ),
@@ -62,8 +68,8 @@ class AttractionMain extends StatelessWidget {
                         padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_2.png',
-                          width: 160,
-                          // height: 80,
+                          width: buttonWidth,
+                          // height: buttonHeight,
                         ),
                       ),
                     ),
@@ -81,8 +87,8 @@ class AttractionMain extends StatelessWidget {
                         padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_3.png',
-                          width: 160,
-                          // height: 80,
+                          width: buttonWidth,
+                          // height: buttonHeight,
                         ),
                       ),
                     ),
@@ -96,8 +102,8 @@ class AttractionMain extends StatelessWidget {
                         padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_4.png',
-                          width: 160,
-                          // height: 80,
+                          width: buttonWidth,
+                          // height: buttonHeight,
                         ),
                       ),
                     ),
@@ -115,8 +121,8 @@ class AttractionMain extends StatelessWidget {
                         padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_5.png',
-                          width: 160,
-                          // height: 80,
+                          width: buttonWidth,
+                          // height: buttonHeight,
                         ),
                       ),
                     ),
@@ -129,8 +135,8 @@ class AttractionMain extends StatelessWidget {
                         padding: const EdgeInsets.all(4),
                         child: Image.asset(
                           'assets/images/loc_6.png',
-                          width: 160,
-                          // height: 80,
+                          width: buttonWidth,
+                          // height: buttonHeight,
                         ),
                       ),
                     ),

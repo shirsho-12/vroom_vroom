@@ -18,13 +18,15 @@ class HelpText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double textSize = width / 12;
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       RichText(
-        text: const TextSpan(
+        text: TextSpan(
           text: 'Hi there!',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: textSize,
             fontWeight: FontWeight.w300,
             letterSpacing: 1.5,
           ),
@@ -32,11 +34,11 @@ class HelpText extends StatelessWidget {
       ),
       const SizedBox(height: 10),
       RichText(
-        text: const TextSpan(
+        text: TextSpan(
           text: 'How can I help you?',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: textSize,
             fontWeight: FontWeight.w300,
             letterSpacing: 1.5,
           ),
@@ -51,6 +53,13 @@ class ButtonGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    // print('width: $width');
+    // print('height: $height');
+
+    double buttonWidth = width * 0.45;
+    double buttonHeight = height * 0.15;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,8 +77,8 @@ class ButtonGrid extends StatelessWidget {
                 padding: const EdgeInsets.all(4),
                 child: Image.asset(
                   'assets/images/book_av.png',
-                  width: 180,
-                  // height: 150,
+                  width: buttonWidth,
+                  height: buttonHeight,
                 ),
               ),
             ),
@@ -83,8 +92,8 @@ class ButtonGrid extends StatelessWidget {
                 padding: const EdgeInsets.all(4),
                 child: Image.asset(
                   'assets/images/visit_place.png',
-                  width: 180,
-                  // height: 80,
+                  width: buttonWidth,
+                  height: buttonHeight,
                 ),
               ),
             ),
@@ -103,8 +112,8 @@ class ButtonGrid extends StatelessWidget {
                 padding: const EdgeInsets.all(4),
                 child: Image.asset(
                   'assets/images/take_photo.png',
-                  width: 180,
-                  // height: 80,
+                  width: buttonWidth,
+                  height: buttonHeight,
                 ),
               ),
             ),
@@ -119,8 +128,8 @@ class ButtonGrid extends StatelessWidget {
                 padding: const EdgeInsets.all(4),
                 child: Image.asset(
                   'assets/images/tell_joke.png',
-                  width: 180,
-                  // height: 80,
+                  width: buttonWidth,
+                  height: buttonHeight,
                 ),
               ),
             ),
