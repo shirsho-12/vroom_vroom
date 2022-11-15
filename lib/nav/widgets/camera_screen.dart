@@ -28,7 +28,7 @@ class CameraScreen extends StatelessWidget {
             RichText(
               textAlign: TextAlign.center,
               text: const TextSpan(
-                text: 'Taking photo liao...\nPlease stand in the circle.',
+                text: 'Taking photo now...\nPlease stand in the circle.',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,

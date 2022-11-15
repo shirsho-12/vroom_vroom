@@ -17,7 +17,7 @@ class TakePhoto extends StatelessWidget {
             RichText(
               textAlign: TextAlign.center,
               text: const TextSpan(
-                text: 'Lai lai!\nLet me bring you to a spot...',
+                text: 'Follow me!\nLet me bring you here...',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,

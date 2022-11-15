@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vroom_vroom/alpr/view/alpr_page.dart';
+// import 'package:vroom_vroom/alpr/view/alpr_page.dart';
 import 'package:vroom_vroom/home/view/home_page.dart';
 import 'package:vroom_vroom/idle/idle.dart';
 import 'package:vroom_vroom/nav/view/nav_page.dart';
@@ -13,7 +13,7 @@ class RouteGenerator {
   static const String takePhotoPage = '/take_photo';
   static const String tellJokePage = '/tell_joke';
   static const String waitAV = '/wait_av';
-  static const String alpr = '/alpr';
+  // static const String alpr = '/alpr';
 
   RouteGenerator._();
 
@@ -23,8 +23,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const HomePage());
       case idle:
         return MaterialPageRoute(builder: (_) => const IdlePage());
-      case alpr:
-        return MaterialPageRoute(builder: (_) => const AlprPage());
+      // case alpr:
+      // return MaterialPageRoute(builder: (_) => const AlprPage());
       case tellJokePage:
         return MaterialPageRoute(builder: (_) => const NavPage(val: 4));
       case takePhotoPage:
