@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
-import 'package:gallery_saver/gallery_saver.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'dart:developer' as devtools show log;
 
 import 'package:googleapis/drive/v3.dart' as drive;
@@ -215,10 +213,10 @@ class _CameraWidgetState extends State<CameraWidget> {
                         if (!mounted) return;
                         devtools.log(image.path);
                         uploadPhoto(image);
-                        if (await Permission.storage.request().isGranted) {
-                          // code of read or write file in external storage (SD card)
-                          GallerySaver.saveImage(image.path);
-                        }
+                        // if (await Permission.storage.request().isGranted) {
+                        //   // code of read or write file in external storage (SD card)
+                        //   GallerySaver.saveImage(image.path);
+                        // }
                         setState(() {
                           isComplete = true;
                         });

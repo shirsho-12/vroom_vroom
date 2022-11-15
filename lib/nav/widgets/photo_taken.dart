@@ -81,7 +81,7 @@ class _PhotoTakenScreenState extends State<PhotoTakenScreen> {
             ),
             const SizedBox(height: 40),
             Image.asset(
-              'assets/images/av_qr.png',
+              'assets/images/gdrive_qr.png',
               width: 180,
               // height: 150,
             )

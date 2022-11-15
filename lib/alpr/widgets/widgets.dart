@@ -1,9 +1,13 @@
 export 'alpr_body.dart';
 
 import 'dart:developer' as devtools show log;
-import 'dart:io';
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:ml_kit_ocr/ml_kit_ocr.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+// import 'package:google_ml_kit/google_ml_kit.dart';
 // import 'package:pytorch_mobile/model.dart';
 // import 'package:pytorch_mobile/pytorch_mobile.dart';
 
@@ -18,29 +22,81 @@ class _ALPRCameraState extends State<ALPRCamera> {
   late final CameraController controller;
   // late Model model;
   late CameraImage _savedImage;
-  Future<void> getModel() async {
-    //   model = await PyTorchMobile.loadModel('assets/models/yolov5s.pt');
-  }
+  late RecognisedText result;
+  final MlKitOcr ocr = MlKitOcr();
 
-  void _processCameraImage(CameraImage image) async {
+  Future<String> _processCameraImage(CameraImage cameraImage) async {
+    final WriteBuffer allBytes = WriteBuffer();
+    for (Plane plane in cameraImage.planes) {
+      allBytes.putUint8List(plane.bytes);
+    }
+    final bytes = allBytes.done().buffer.asUint8List();
+
+    final Size imageSize =
+        Size(cameraImage.width.toDouble(), cameraImage.height.toDouble());
+
+    final inputImageData = InputImageData(
+      size: imageSize,
+      imageRotation: InputImageRotation.Rotation_0deg,
+      planeData: [
+        InputImagePlaneMetadata(
+          bytesPerRow: cameraImage.planes[0].bytesPerRow,
+          height: cameraImage.planes[0].height,
+          width: cameraImage.planes[0].width,
+        ),
+        InputImagePlaneMetadata(
+          bytesPerRow: cameraImage.planes[1].bytesPerRow,
+          height: cameraImage.planes[1].height,
+          width: cameraImage.planes[1].width,
+        ),
+        InputImagePlaneMetadata(
+          bytesPerRow: cameraImage.planes[2].bytesPerRow,
+          height: cameraImage.planes[2].height,
+          width: cameraImage.planes[2].width,
+        ),
+      ],
+      inputImageFormat:
+          InputImageFormatMethods.fromRawValue(cameraImage.format.raw) ??
+              InputImageFormat.NV21,
+    );
+
+    final inputImage =
+        InputImage.fromBytes(bytes: bytes, inputImageData: inputImageData);
+
+    final result = await ocr.processImage(InputImage.fromBytes(
+      bytes: bytes,
+      inputImageData: inputImageData,
+    ));
+    String output = '';
+    for (TextBlock block in result.blocks) {
+      for (TextLine line in block.lines) {
+        for (TextElement element in line.elements) {
+          devtools.log(element.text);
+          output += element.text;
+        }
+      }
+    }
     setState(() {
-      _savedImage = image;
+      _savedImage = cameraImage;
     });
+    return output;
   }
 
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
     super.initState();
     controller = CameraController(widget.camera, ResolutionPreset.max);
     // getModel();
-
     controller.initialize().then((_) async {
       if (!mounted) {
         return;
       }
       setState(() {});
-      await controller
-          .startImageStream((CameraImage image) => _processCameraImage(image));
+      await Permission.camera.request();
+
+      // await controller
+      // .startImageStream((CameraImage image) => _processCameraImage(image));
     }).catchError((Object e) {
       if (e is CameraException) {
         switch (e.code) {
@@ -54,18 +110,6 @@ class _ALPRCameraState extends State<ALPRCamera> {
       }
     });
     super.initState();
-  }
-
-  Future<List<dynamic>?> getPreds(File image) async {
-    // final Future<List<dynamic>?> preds = model.getImagePredictionList(
-    //   image,
-    //   640,
-    //   640,
-    //   mean: [0.485, 0.456, 0.406],
-    //   std: [0.229, 0.224, 0.225],
-    // );
-    // return preds;
-    return [];
   }
 
   @override
@@ -87,82 +131,46 @@ class _ALPRCameraState extends State<ALPRCamera> {
         child: CircularProgressIndicator(),
       );
     }
-
-    final size = MediaQuery.of(context).size;
-    final deviceRatio = size.width / size.height;
-    final xScale = controller.value.aspectRatio / deviceRatio;
-    bool takePicture = true;
-// // Modify the yScale if you are in Landscape
-    const double yScale = 1;
+    // controller.takePicture();
     return Stack(children: [
-      AspectRatio(
-        aspectRatio: deviceRatio,
-        child: Transform(
-          alignment: Alignment.center,
-          transform: Matrix4.diagonal3Values(xScale, yScale, 1),
+      Center(
+        child: SizedBox(
+          width: 450,
+          height: 600,
           child: CameraPreview(controller),
         ),
       ),
-      FutureBuilder(
-          future: getModel(),
-          builder: (context, snapshot) {
-            print(_savedImage.toString());
-            final File image = File(_savedImage.toString());
-            if (snapshot.connectionState == ConnectionState.done) {
-              return FutureBuilder<List<dynamic>?>(
-                future: getPreds(image),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    devtools.log(snapshot.data.toString());
-                    print(snapshot.data.toString());
-                    setState(() {
-                      takePicture = true;
-                    });
-                    return Text(snapshot.data.toString());
-                  } else {
-                    return const Text('No data');
-                  }
-                },
-              );
-            } else {
-              return const Text('No data');
-            }
-          })
+      const Center(
+          // child: FutureBuilder<String>(
+          // future: controller.takePicture().then(
+          // (value) => _processCameraImage(Image.file(File(value.path)))),
+          // builder: (context, snapshot) {
+          child: Text(
+        'Hello',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 50,
+        ),
+      )
+          // }),
+          ),
     ]);
 
     // return
   }
 }
 
-// class ALPRBackbone extends StatefulWidget {
-//   const ALPRBackbone({Key? key}) : super(key: key);
+class MLKitOCR extends StatefulWidget {
+  const MLKitOCR({Key? key}) : super(key: key);
 
-//   @override
-//   State<ALPRBackbone> createState() => _ALPRBackboneState();
-// }
+  @override
+  State<MLKitOCR> createState() => _MLKitOCRState();
+}
 
-// class _ALPRBackboneState extends State<ALPRBackbone> {
-//   // late Model model;
-
-//   @override
-//   void initState() async {
-//     // model = await PyTorchMobile.loadModel('models/yolov5s.pt');
-//     super.initState();
-//   }
-
-//   Future<List<dynamic>?> getPreds(File image) async {
-//     final Future<List<dynamic>?> preds = model.getImagePredictionList(
-//       image,
-//       640,
-//       640,
-//       mean: [0.485, 0.456, 0.406],
-//       std: [0.229, 0.224, 0.225],
-//     );
-//     return preds;
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
+class _MLKitOCRState extends State<MLKitOCR> {
+  final ocr = MlKitOcr();
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
