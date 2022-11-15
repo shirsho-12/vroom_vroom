@@ -2,15 +2,7 @@
 
 ID3127 Future of Mobility - Vroom Vroom
 
-## Getting Started
+## The Future of Mobility - ID3127
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This repository is the UI code for ChopeBot - our friendly tourist bot. A user-friendly Flutter UI 
+for a bot that tells you about trendy places in Singapore. It also takes photos with you.
